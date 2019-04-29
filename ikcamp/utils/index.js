@@ -49,5 +49,30 @@ let util = {
                 cb && cb();
             }
         })
+    },
+    request(opt) {
+        // 对象解构
+        let { url, data, header, method, dataType, mock } = opt
+        let self = this
+        return new Promise((resolve, reject) => {
+            if (mock) {
+                let res = {
+                    statusCode: 200,
+                    data: Mock[url]
+                }
+                if (res && res.statusCode === 200 && res.data) {
+                    resolve(res.data)
+                }else{
+                    self.alert('提示',res)
+                    reject(res)
+                }
+            }else{
+                wx.request({
+                    url:url,
+                    data:data,
+                })
+            }
+        })
     }
 }
+export default util

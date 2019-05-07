@@ -25,17 +25,48 @@ Page({
   },
   createGroup() {
     let self = this;
-    if( self.data.groupName === '' ){
+    if (self.data.groupName === '') {
       Notify({
-        text: '输入框不能为空',
+        text: '起个名字',
         duration: 1500,
-        // 持续多久
         selector: '#notify-selector',
-        // 选中id名，相当于DOM操作
         backgroundColor: '#dc3545'
       });
-      self.selectComponent('#new-group-modal').stopLoading();
-      return 
+      //   // self.setData({
+      //   //   newGroupModal: true
+      //   // })
+      //   // dialog自带方法
+      self.selectComponent('#new-group-modal').stopLoading()
+      return
+    } else {
+      // 调用云函数
+      wx.cloud.callFunction({
+        name: 'createGroup',
+        data: {
+          groupName: self.data.groupName
+        },
+        success(res) {
+          self.setData({
+            newGroupModal: false,
+            groupName: ''
+          })
+          Notify({
+            text: '新建成功',
+            duration: 1500,
+            selector: '#notify-selector',
+            backgroundColor: '#fa5645'
+          });
+          setTimeout(() => {
+            // tabbar 的页面跳转
+            wx.switchTab({
+              url: '/pages/group/group'
+            })
+          })
+        },
+        fail(error) {
+          console.log(error);
+        }
+      })
     }
   },
   onGroupNameChange(event) {
@@ -43,7 +74,7 @@ Page({
     this.setData({
       groupName: event.detail
     })
-    
+
   },
   onLoad: function (options) {
 

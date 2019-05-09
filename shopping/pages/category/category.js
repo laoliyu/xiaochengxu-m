@@ -16,9 +16,60 @@ Page({
     ],
     curIndex: 0,
     toView: 'guowei',
-    isScroll: false
+   
+    isScroll: false,
+    heightArr: [],
+   containerH:0
   },
+  switchTab(e) {
+    console.log(e);
+    this.setData({
+      toView: e.target.dataset.id,
+      curIndex: e.target.dataset.index
 
+    })
+  },
+  ready() {
+    let query = wx.createSelectorQuery().in(this);
+    let heightArr = [];
+    let s = 0;
+    query.selectAll('.cate-box').boundingClientRect((react) => {
+      // console.log(react);
+      react.forEach((res) => {
+        s += res.height;
+        heightArr.push(s)
+      });
+      this.setData({
+        heightArr: heightArr
+      })
+    });
+    query.select('.categroy-right').boundingClientRect((res) => {
+      this.setData({
+        containerH: res.height
+      })
+    }).exec()
+  },
+  onScroll(e) {
+    console.log(e);
+    let scrollTop = e.detail.scrollTop;
+    let scrollArr = this.data.heightArr;
+    if (scrollTop >= scrollArr[scrollArr.length - 1] - this.data.containerH) {
+      return
+    } else {
+      for (let i = 0; i < scrollArr.length; i++) {
+        if (scrollTop >= 0 && scrollTop < scrollArr[0]) {
+          this.setData({
+            curIndex: 0
+          })
+        } else if (scrollTop >= scrollArr[i - 1]&&scrollTop < scrollArr[i]) {
+          this.setData({
+            curIndex: i
+          })
+        }
+      }
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

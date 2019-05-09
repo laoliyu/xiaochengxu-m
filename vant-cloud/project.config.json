@@ -2,16 +2,14 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"autoAudits": false,
-		"checkInvalidKey": true
+		"newFeature": true
 	},
-	"appid": "wxeb5dd4b153f6de54",
-	"projectname": "vant-cloud",
+	"appid": "wx0f6f29046cca189d",
+	"projectname": "vant-cloud1",
 	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

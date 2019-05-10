@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
@@ -49,5 +48,11 @@
       }
     ]
   },
+  
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
   "sitemapLocation": "sitemap.json"
 }

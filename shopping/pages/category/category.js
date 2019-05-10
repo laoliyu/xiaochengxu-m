@@ -12,56 +12,35 @@ Page({
       { name: '点心', id: 'dianxin' },
       { name: '粗茶', id: 'cucha' },
       { name: '淡饭', id: 'danfan' }
-
     ],
     curIndex: 0,
-    toView: 'guowei',
-   
     isScroll: false,
+    toView: 'hello',
+    detail: [],
     heightArr: [],
-   containerH:0
+    containerH: 0,
+
   },
   switchTab(e) {
-    console.log(e);
+    console.log(e, '测试index')
     this.setData({
       toView: e.target.dataset.id,
       curIndex: e.target.dataset.index
-
     })
   },
-  ready() {
-    let query = wx.createSelectorQuery().in(this);
-    let heightArr = [];
-    let s = 0;
-    query.selectAll('.cate-box').boundingClientRect((react) => {
-      // console.log(react);
-      react.forEach((res) => {
-        s += res.height;
-        heightArr.push(s)
-      });
-      this.setData({
-        heightArr: heightArr
-      })
-    });
-    query.select('.categroy-right').boundingClientRect((res) => {
-      this.setData({
-        containerH: res.height
-      })
-    }).exec()
-  },
-  onScroll(e) {
-    console.log(e);
+  scroll(e) {
+    const that = this;
     let scrollTop = e.detail.scrollTop;
-    let scrollArr = this.data.heightArr;
-    if (scrollTop >= scrollArr[scrollArr.length - 1] - this.data.containerH) {
+    let scrollArr = this.data.heightArr
+    if (scrollTop >= scrollArr[scrollArr.length-1] - that.data.containerH) {
       return
     } else {
       for (let i = 0; i < scrollArr.length; i++) {
         if (scrollTop >= 0 && scrollTop < scrollArr[0]) {
-          this.setData({
+          that.setData({
             curIndex: 0
           })
-        } else if (scrollTop >= scrollArr[i - 1]&&scrollTop < scrollArr[i]) {
+        } else if (scrollTop >= scrollArr[i - 1] && scrollTop < scrollArr[i]) {
           this.setData({
             curIndex: i
           })
@@ -69,28 +48,47 @@ Page({
       }
     }
   },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    console.log(1)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let self = this
+    let self = this;
+    let query = wx.createSelectorQuery().in(self);
+    let heightArr = [];
+    let s = 0
     wx.request({
-
       url: 'http://www.gdfengshuo.com/api/wx/cate-detail.txt',
       success(res) {
+        console.log(res)
         self.setData({
           detail: res.data
         })
       }
     })
+    setTimeout(function () {
+      query.selectAll('.cate-box').boundingClientRect((react => {
+        console.log(react, 'heihie')
+        react.forEach((res) => {
+          s += res.height;
+          heightArr.push(s)
+          console.log(heightArr, '测试高度数组')
+        });
+        self.setData({
+          heightArr: heightArr
+        })
+
+      }))
+      query.select('.main').boundingClientRect((res) => {
+        self.setData({
+          containerH: res.height
+        })
+        console.log(res, 'haha')
+      }).exec()
+    }, 6000)
   },
 
   /**
@@ -134,4 +132,6 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+
+}
+)

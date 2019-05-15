@@ -1,6 +1,0 @@
-<!--components/feeds/feeds.wxml-->
-<block >
-  <feed item="{{ item}}" wx:for="{{events}}" wx:key="{{index}}"></feed>
-  <loading type="spinner" class="loading" color="#fff" hidden="{{!loading}}" />
-</block>
-  

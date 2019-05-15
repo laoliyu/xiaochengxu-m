@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    gameDate: [{
+    date: [{
       id: 'd22',
       time: '05月15日'
     },
@@ -21,7 +21,7 @@ Page({
       time: '06月7日'
     }
     ],
-    gameResult: [{
+   result: [{
       id: 'd22',
       leftteam: "https://mat1.gtimg.com/sports/nba/logo/new/22.png",
       leftgrade: 119,
@@ -79,8 +79,8 @@ Page({
   turnRight() {
 
     // es6 解构 var a = [1,2,3]; const [aa,bb,cc]= a;
-    let { current, gameDate } = this.data;
-    if (current >= gameDate.length - 1) return;
+    let { current, date } = this.data;
+    if (current >= date.length - 1) return;
     current++;
     this.setData({
       current
@@ -89,10 +89,10 @@ Page({
   },
   handleAgendaDate() {
     // date时间的数组， result是比赛的结果 通过id关联起来
-    let { current, gameResult, gameDate } = this.data;
-    let { id } = gameDate[current];
+    let { current, result, date } = this.data;
+    let { id } = date[current];
     // 数组的API
-    const agenda = gameResult.find(item => id === item.id);
+    const agenda = result.find(item => id === item.id);
     if (agenda) {
       this.setData({
         agenda

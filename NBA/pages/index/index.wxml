@@ -1,18 +1,18 @@
 <view class="agenda">
   <view class="date">
-    <view class="dateLeft"bindtap="turnLeft">
-      <image class="" src="../../images/images/indextop/left1.png"  />
+    <view class="dateLeft" bindtap="turnLeft">
+      <image class="" src="../../images/images/indextop/left1.png" />
     </view>
     <swiper current="{{current}}" autoplay="{{false}}">
       <block wx:for="{{date}}" wx:key="{{index}}">
-        <swiper-item >
-          <text class="time">{{ item.time }} </text>
+        <swiper-item>
+          <text class="time">{{ item.time }}</text>
           <!-- text 不能换行 -->
         </swiper-item>
       </block>
     </swiper>
-    <view class="dateRight"bindtap="turnRight">
-    <image src="../../images/images/indextop/right1.png" />
+    <view class="dateRight" bindtap="turnRight">
+      <image src="../../images/images/indextop/right1.png" />
     </view>
   </view>
   <view class="agenda-grade">
@@ -34,5 +34,4 @@
       <text>{{agenda.rightname}}</text>
     </view>
   </view>
-
 </view>

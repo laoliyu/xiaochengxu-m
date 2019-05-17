@@ -41,7 +41,7 @@ Page({
       return
     } else {
       wx.cloud.callFunction({
-        name: 'creatGroup',
+        name: 'createGroup',
         data: {
           groupName: self.data.groupName
         },
@@ -56,14 +56,14 @@ Page({
             selector: '#notify-selector',
             backgroundColor: '#28a745'
           });
-          setTimeout(() =>{
+          setTimeout(() => {
             wx.switchTab({
-              url: '/pages/group/group',
+              url: '/pages/group/group'
             })
           },1500)
         },
-        fail(err) {
-          console.log(err)
+        fail(error) {
+          console.log(error)
         }
       })
     }

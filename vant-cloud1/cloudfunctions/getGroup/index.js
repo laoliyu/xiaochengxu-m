@@ -12,9 +12,9 @@ let groupList = await db.collection('userGroup').where({
 }).get()
 let returnResult = []
 for(let item of groupList.data){
-  const oneGroup = await db.collection('name').where({
+  const oneGroup = await db.collection('group ').where({
     _id:item.groupID,
-    deleted:false
+    delete:false
   }).get()
 
   if(oneGroup.data.length > 0){

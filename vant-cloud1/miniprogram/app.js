@@ -8,13 +8,14 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
-         env: 'yun-file-tht0t'
+        env: 'yun-file-tht0t'
       })
     }
 
     this.globalData.shareParam = options.query
     var self = this;
     // 查看是否授权
+    // 在数据库中看到用户信息
     wx.getSetting({
       success(settingRes) {
         //已经授权
@@ -23,14 +24,15 @@ App({
             withCredentials: true,
             lang: '',
             success: function (res) {
-              self.globalData.userInfo = res.userinfo
+              self.globalData.userInfo = res.userinfo//把用户的信息存到全局作用域中
               if (self.catchUserInfo) {
-                self.catchUserInfo(res.userinfo)
-
+                self.catchUserInfo(res.userinfo)//如果出意外，就重新捕获一次
+                // 这个用户不是新用户
                 wx.cloud.callFunction({
                   name: 'createUser',
                   data: {
-                    avatarUrl: res.userInfo.avatarUrl,
+                    userInfo:res.userInfo,
+                    avatarUrl: res.userInfo.avatarUrl,//用户头像
                     name: '',
                     nickName: res.userInfo.nickName,
                     sex: res.userInfo.gender
@@ -42,7 +44,7 @@ App({
                 })
               }
             },
-            fail: function (res) { },
+            fail: function (res) { console.log(res) },
             complete: function (res) { },
           })
         }
@@ -51,21 +53,21 @@ App({
     //数据库请求数据
     wx.cloud.callFunction({
       name: 'getUserInfo',
-      data: {},
-      success(res){
-        self.globalData.userInfoFormCloud = res.result.storeUser
+      data: {},//从云函数里面获取函数
+      success(res) {
+        self.globalData.userInfoFromCloud = res.result.storeUser
       }
     })
   },
   //创建一个全局变量globalData
-  globalData:{
-    currentGroupInfo:null,
-    currentGroupUserList:[],
-    currentBill:null,
-    userInfo:null,
-    shareParam:null,
-    billId:'',
-    userInfoFromCloud:null,
-    userRemark:{}
+  globalData: {
+    currentGroupInfo: null,
+    currentGroupUserList: [],
+    currentBill: null,
+    userInfo: null,
+    shareParam: null,
+    billId: '',
+    userInfoFromCloud: null,
+    userRemark: {}
   }
 })

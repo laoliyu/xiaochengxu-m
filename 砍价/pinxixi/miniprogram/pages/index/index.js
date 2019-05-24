@@ -138,7 +138,7 @@ Page({
   onGetUserInfo: function (e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({
-        logged: true,
+        logged: true, 
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo
       })

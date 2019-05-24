@@ -59,7 +59,7 @@ var addTwoNumbers = function (l1, l2) {
     }
     return ret[0];
     console.log();
-    return ans.join('');
+    // return ans.join('');
 }
 
 

@@ -13,7 +13,7 @@
     <img src="" alt="" id="avatar">
     <script>
         const query = window.location.search.substring(1);
-        const avatar =query.split('avatar_url')[1];
+        const avatar =query.split('avatar_url=')[1];
         document.getElementById('avatar').src = avatar;
     </script>
 </body>

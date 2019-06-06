@@ -57,7 +57,7 @@ router.get('/login', async (ctx) => {
     }else{
         ctx.session.login = false;
 
-        ctx.body='登录失败'
+        ctx.body='测试时报'
     }
 })
 router.get('/testlogin',async(ctx)=>{

@@ -16,31 +16,31 @@ app
     .use(staticServer(path.join(__dirname, './static'))
     );
 
-// router.get('/', async (ctx) => {
-//     ctx.cookies.set('fromserver1', 'fromserver1', {
-//         maxAge: 1000
-//     });
-//     ctx.cookies.set('user', 'user', {
-//         path: '/user',
-//         httpOnly: false
+router.get('/', async (ctx) => {
+    ctx.cookies.set('fromserver1', 'fromserver1', {
+        maxAge: 1000
+    });
+    ctx.cookies.set('user', 'user', {
+        path: '/user',
+        httpOnly: false
 
-//     });
-//     ctx.cookies.set('user-abc', 'user-abc', {
-//         path: '/user/abc',
+    });
+    ctx.cookies.set('user-abc', 'user-abc', {
+        path: '/user/abc',
 
-//     });
+    });
 
-//     ctx.cookies.set('post', 'post', {
-//         path: '/post',
+    ctx.cookies.set('post', 'post', {
+        path: '/post',
 
-//     })
-//     ctx.type = 'html';
-//     ctx.body = `
-//   <a href = "/user"> -> user</a>
-//   <a href = "/post"> -> post</a>
-//   <a href = "/user/abc"> -> user/abc</a>
-//   `
-// })
+    })
+    ctx.type = 'html';
+    ctx.body = `
+  <a href = "/user"> -> user</a>
+  <a href = "/post"> -> post</a>
+  <a href = "/user/abc"> -> user/abc</a>
+  `
+})
 router.get('/user', async (ctx) => {
     ctx.body = 'user page';
 })

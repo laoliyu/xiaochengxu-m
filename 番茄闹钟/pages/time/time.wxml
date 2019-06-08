@@ -1,0 +1,45 @@
+<!-- pages/time/time.wxml -->
+<view class="page">
+    <!-- 页面的头部 -->
+    <view class="header">
+        <h1 class="header-title">选择一个任务</h1>
+        <view class="header-title2">在接下来的25分钟，专注做这件事</view>
+    </view>
+    <!-- 页面内容部分 -->
+    <view class="content">
+        <view class="content-top">
+            <view class="top top1">
+                <text class='iconfont iconfolder' style='color:#8dceff;font-size:60rpx;margin-top:104rpx'></text>
+                <span class="dec iconfont-title">工作</span>
+            </view>
+            <view class="top top2">
+                <text class='iconfont iconxuexi--copy' style='color:#5ab729;font-size:60rpx;'></text>
+                <span class="dec iconfont-title">学习</span>
+            </view>
+            <view class="top top3">
+                <text class='iconfont iconsikao' style='color:#ffa21f;font-size:60rpx;'></text>
+                <span class="dec iconfont-title">思考</span>
+            </view>
+        </view>
+        <view class="content-top1">
+            <view class="top top1">
+                <text class='iconfont iconxiezuo' style='color:#34d5eb;font-size:60rpx;margin-top:104rpx'></text>
+                <span class="dec iconfont-title">写作</span>
+            </view>
+            <view class="top top2">
+                <text class='iconfont iconjinriyundong' style='color:#6f64c7;font-size:60rpx;'></text>
+                <span class="dec iconfont-title">运动</span>
+            </view>
+            <view class="top top3">
+                <text class='iconfont iconyuedushuai' style='color:#ff4258;font-size:60rpx;'></text>
+                <span class="dec iconfont-title">阅读</span>
+            </view>
+        </view>
+    </view>
+    <!-- 页面按钮部分 -->
+    <view class="footer">
+        <view class="footer-btn">
+            <text class="btn-content">开始计时</text>
+        </view>
+    </view>
+</view>

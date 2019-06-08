@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/time/time",
+    "pages/tongji/tongji"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1c3e81",
+    "navigationBarTitleText": "番茄闹钟",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "background": "blue",
+    "list": [
+      {
+        "pagePath": "pages/time/time",
+        "text": "时间",
+        "iconPath": "/images/time.png",
+        "selectedIconPath": "/images/time1.png"
+      },
+      {
+        "pagePath": "pages/tongji/tongji",
+        "text": "统计",
+        "iconPath": "/images/tongji.png",
+        "selectedIconPath": "/images/tongji1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

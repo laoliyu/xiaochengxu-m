@@ -16,7 +16,13 @@ Page({
   },
   countTime: function () {
     wx.navigateTo({
-      url: '../time/countTime/countTime'
+      url: '../countTime/countTime'
+    })
+  },
+  click: function (e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../countTime/countTime'
     })
   },
   /**

@@ -1,0 +1,30 @@
+/* pages/time/countTime/countTime.wxss */
+
+.page {
+    width: 760rpx;
+    height: 1400rpx;
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560074157448&di=8db8399e1561e67db77d5386190dbd2b&imgtype=0&src=http://images.infzm.com/medias/cms/medias/image/19/05/14/k439TNDyEgbIyh2CtVYvQyCZnadWG5lH4b32T2Hr.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.container {
+    width: 400rpx;
+    height: 200rpx;
+    border: 1rpx solid #fff;
+    border-radius: 50%;
+    position: relative;
+     top:20%;
+     left: 23%;
+}
+    .bg{
+        width: 30%;
+       margin-top: 400rpx;
+       border-radius: 60rpx;
+    }
+    .gv{
+        width: 30%;
+        margin-top: 50rpx;
+        border-radius: 60rpx;
+
+    }

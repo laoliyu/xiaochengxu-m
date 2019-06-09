@@ -8,29 +8,29 @@
     <!-- 页面内容部分 -->
     <view class="content">
         <view class="content-top">
-            <view class="top top1">
+            <view class="top top1 "bindtap="click" >
                 <text class='iconfont iconfolder' style='color:#8dceff;font-size:60rpx;margin-top:104rpx'></text>
                 <span class="dec iconfont-title">工作</span>
             </view>
-            <view class="top top2">
+            <view class="top top2 "bindtap="click">
                 <text class='iconfont iconxuexi--copy' style='color:#5ab729;font-size:60rpx;'></text>
                 <span class="dec iconfont-title">学习</span>
             </view>
-            <view class="top top3">
+            <view class="top top3 "bindtap="click">
                 <text class='iconfont iconsikao' style='color:#ffa21f;font-size:60rpx;'></text>
                 <span class="dec iconfont-title">思考</span>
             </view>
         </view>
-        <view class="content-top1">
-            <view class="top top1">
+        <view class="content-top1 ">
+            <view class="top top1"bindtap="click">
                 <text class='iconfont iconxiezuo' style='color:#34d5eb;font-size:60rpx;margin-top:104rpx'></text>
                 <span class="dec iconfont-title">写作</span>
             </view>
-            <view class="top top2">
+            <view class="top top2 "bindtap="click">
                 <text class='iconfont iconjinriyundong' style='color:#6f64c7;font-size:60rpx;'></text>
                 <span class="dec iconfont-title">运动</span>
             </view>
-            <view class="top top3">
+            <view class="top top3 "bindtap="click">
                 <text class='iconfont iconyuedushuai' style='color:#ff4258;font-size:60rpx;'></text>
                 <span class="dec iconfont-title">阅读</span>
             </view>

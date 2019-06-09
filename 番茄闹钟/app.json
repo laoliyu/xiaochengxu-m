@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/tongji/tongji",
-    "pages/time/time"
-    
+    "pages/time/time",
+    "pages/time/countTime/countTime"
   ],
   "window": {
     "backgroundTextStyle": "light",

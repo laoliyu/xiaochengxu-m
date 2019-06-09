@@ -39,7 +39,7 @@
     <!-- 页面按钮部分 -->
     <view class="footer">
         <view class="footer-btn">
-            <text class="btn-content">开始计时</text>
+            <text class="btn-content" bindtap="countTime">开始计时</text>
         </view>
     </view>
 </view>

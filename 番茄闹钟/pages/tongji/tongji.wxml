@@ -1,6 +1,6 @@
 <!-- pages/tongji/tongji.wxml -->
 <view class="page">
-    <view class="header">
+    <view class="heade">
         <view class="header-left">
             今日番茄数
             <view class="num">0</view>
@@ -21,19 +21,66 @@
             <text class="ridus-num">0</text>
         </view>
         <view class="content-list">
-            <text class='iconfont icon04' style='color:#6bbaff;font-size:25rpx;'></text>
-            <span class="name">工作</span>
-             <text class='iconfont icon04' style='color:#7ed321;font-size:25rpx;'></text>
-            <span class="name">学习</span>
-             <text class='iconfont icon04' style='color:#ffa21f;font-size:25rpx;'></text>
-            <span class="name">思考</span>
-             <text class='iconfont icon04' style='color:#33d6eb;font-size:25rpx;'></text>
-            <span class="name">写作</span>
-             <text class='iconfont icon04' style='color:#969bed;font-size:25rpx;'></text>
-            <span class="name">运动</span>
-             <text class='iconfont icon04' style='color:#ff4258;font-size:25rpx;'></text>
-            <span class="name">阅读</span>
-            
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#6bbaff;font-size:25rpx;'></text>
+                <span class="name">工作</span>
+            </view>
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#7ed321;font-size:25rpx;'></text>
+                <span class="name">学习</span>
+            </view>
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#ffa21f;font-size:25rpx;'></text>
+                <span class="name">思考</span>
+            </view>
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#33d6eb;font-size:25rpx;'></text>
+                <span class="name">写作</span>
+            </view>
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#969bed;font-size:25rpx;'></text>
+                <span class="name">运动</span>
+            </view>
+            <view class="nav">
+                <text class='iconfont icon04' style='color:#ff4258;font-size:25rpx;'></text>
+                <span class="name">阅读</span>
+            </view>
+        </view>
+    </view>
+    <!-- 页面尾部 -->
+    <view class="footer">
+        <view class="footer-title">
+            <view class="header-title">最近一周完成</view>
+            <view class="header-date">平均每天0个番茄</view>
+            <view class="header-dec">0个番茄</view>
+        </view>
+        <!-- 日历的实现 -->
+        <view class='wrap'>
+            <view>
+                <view class='date-show'>
+                    <view class='lt-arrow' bindtap='lastMonth'>
+                        <image src='/images/left.png' mode='aspectFit'></image>
+                    </view>
+                    {{year}}年{{month}}月
+                    <view class='rt-arrow' bindtap='nextMonth'>
+                        <image src='/images/right.png' mode='aspectFit'></image>
+                    </view>
+                </view>
+            </view>
+            <view class='header'>
+                <view wx:for='{{date}}' wx:key="{{index}}" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
+                    {{item}}
+                    <view></view>
+                </view>
+            </view>
+            <view class='date-box'>
+                <view wx:for='{{dateArr}}'wx:key="{{index}}" class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+                    <view class='date-head'>
+                        <view>{{item.dateNum}}</view>
+                    </view>
+                    <!-- <view class='date-weight'>{{item.weight}}</view> -->
+                </view>
+            </view>
         </view>
     </view>
 </view>

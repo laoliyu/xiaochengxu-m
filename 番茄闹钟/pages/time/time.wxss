@@ -75,14 +75,6 @@
     margin-top: 200rpx;
     margin-left: -20rpx;
 }
-.content-top .top1.on{
-  
-    border-bottom: solid 2px #8dceff;
-}
-.content-top .top2.on{
-  
-    border-bottom: solid 2px #5ab729;
-}
 
 /* 页面按钮部分 */
 

@@ -1,2 +1,39 @@
-<!--pages/tongji/tongji.wxml-->
-<text>pages/tongji/tongji.wxml</text>
+<!-- pages/tongji/tongji.wxml -->
+<view class="page">
+    <view class="header">
+        <view class="header-left">
+            今日番茄数
+            <view class="num">0</view>
+        </view>
+        <view class="header-right">
+            累计番茄数
+            <view class="num">0</view>
+        </view>
+    </view>
+    <!-- 内容 -->
+    <view class="content">
+        <view class="content-header">
+            <view class="header-title">今日完成</view>
+            <view class="header-date">2019年06月09日</view>
+            <view class="header-dec">0个番茄</view>
+        </view>
+        <view class="content-ridus">
+            <text class="ridus-num">0</text>
+        </view>
+        <view class="content-list">
+            <text class='iconfont icon04' style='color:#6bbaff;font-size:25rpx;'></text>
+            <span class="name">工作</span>
+             <text class='iconfont icon04' style='color:#7ed321;font-size:25rpx;'></text>
+            <span class="name">学习</span>
+             <text class='iconfont icon04' style='color:#ffa21f;font-size:25rpx;'></text>
+            <span class="name">思考</span>
+             <text class='iconfont icon04' style='color:#33d6eb;font-size:25rpx;'></text>
+            <span class="name">写作</span>
+             <text class='iconfont icon04' style='color:#969bed;font-size:25rpx;'></text>
+            <span class="name">运动</span>
+             <text class='iconfont icon04' style='color:#ff4258;font-size:25rpx;'></text>
+            <span class="name">阅读</span>
+            
+        </view>
+    </view>
+</view>

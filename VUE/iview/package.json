@@ -1,11 +1,11 @@
 {
-  "name": "view",
+  "name": "iview",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "helloword10086 <941129839@qq.com>",
+  "author": "wn <652501825@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --open --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },

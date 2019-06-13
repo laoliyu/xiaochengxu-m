@@ -5,11 +5,11 @@
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
       </div>
-       <div class="tab-item">
+      <div class="tab-item">
         <router-link to="/ratings">评论</router-link>
       </div>
-       <div class="tab-item">
-        <router-link to="/sellers">商家</router-link>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -31,7 +31,7 @@ export default {
     'v-header': header
   },
   created () {
-    this.$http.get('https://www.easy-mock.com/mock/5d00b07b1bc93d0bae07b230/eoniu/vue-eleme-seller')
+    this.$http.get('https://www.easy-mock.com/mock/5ca466a713e4cf68f04a42f7/js_fullStack/vue-eleme-seller')
       .then(res => {
         // console.log(res)
         if (res.data.errno === 0) {
@@ -48,20 +48,19 @@ export default {
   display flex
   width 100%
   height 40px
-  line-height 40px 
+  line-height 40px
   border-bottom 1px solid rgba(7,17,27,0.1)
-  border-1px(rgba(7,17,27,0.1)) 
+  border-1px(rgba(7,17,27,0.1))
   .tab-item
     flex 1
     text-align center
 
-    &>a 
+    & > a
       display block
       font-size 14px
       color rgb(77,85,93)
       text-decoration none
-
-      &.active
+      &.router-link-active
         color rgb(240,20,20)
 
 </style>

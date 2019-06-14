@@ -1,25 +1,37 @@
-const EventEmiter = require('events');
-class Ev extends EventEmiter{};
+const EventEmitter = require('events');
+class Ev extends EventEmitter {};
 
 const ev = new Ev();
-
-//绑定事件
-// ...args 把所有剩余的所有函数参数整理为数组
-// args =[];处理参数不固定
-['search'].forEach(key => {
-  ev.on(key, async function(...args){
+['search','choose'].forEach(key =>{
+  ev.on(key,async function(...args){
     const fn = require(`./lib/${key}`);
-    const res = await fn(...args);
-    console.log('res 的执行结果',res);
+    const res =await fn(...args)
+    // console.log(...arg)
+    // console.log(res)
+    ev.emit('handle',key,res,...args);
+  } )
+  ev.on('afterSearch',function(data,keyword){
+    if (!data || !data.result || !data.result.songs) {
+      console.log(`没搜索到 ${keyword} 的相关结果`)
+      return;
+    }
+    const songs = data.result.songs
+    ev.emit('choose', songs)
+  })
+  ev.on('handle',function(key,res,...args){
+    switch(key){
+      case 'search': return ev.emit('afterSearch',res,args[0]);
+    }
   })
 })
-function main(arg) {
-  // console.log(arg);
-  // if (!arg || !arg.length) {
-  //   let arg = arg[2];
-  // }
-  let keyword = arg[2];
-  console.log(keyword);
-  eval.emit('search',keyword);
+function main(arg){
+ console.log(arg);
+if(arg || arg.length){
+ var keyword = arg[2];
+   
+  ev.emit('search',keyword)
+}
+// console.log(arg)
 }
 main(process.argv);
+//绑定事件

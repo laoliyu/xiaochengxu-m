@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <counter />
   </div>
 </template>

@@ -23,3 +23,12 @@ export default new Vuex.Store({
     actions,
 
 })
+
+// vue 开发，两部分
+// 组件开发（协作） vex 数据管理
+// const state = {
+//     count:0
+// }
+// export default new Vuex.Store({
+
+// })

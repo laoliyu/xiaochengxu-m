@@ -1,0 +1,48 @@
+<!-- v-on绑定事件，并且进行监听 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-on实例</h1>
+    <hr>
+    <div id="app">
+        本场比赛得分：{{score}}
+        <p>
+            <button v-on:click="addscore"> 加分</button>
+            <button @click="decscore"> 减分</button><br />
+            <!-- v-model绑定数据源 -->
+            <input type="text" v-on:keyup.13="onEnter" v-model='score2'>
+        </p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                score: 0,
+                score2: 1
+            },
+            methods: {
+                addscore: function () {
+                    this.score++
+                },
+                decscore: function () {
+                    this.score--
+                },
+                onEnter: function () {
+                    this.score = this.score + parseInt(this.score2)
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

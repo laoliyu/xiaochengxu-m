@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-if实例</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="item in sortitems">{{item}}</li>
+
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="student in sortstudents
+            " >{{student.name}}-{{student.age}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [4, 22, 333, 5, 7, 9],
+                students: [{
+                    name: 'sl', age: 21
+                },
+                { name: 'll', age: 14 },
+                { name: 'sy', age: 17 },
+                ]
+            },
+            computed: {
+
+                sortitems: function () {
+                    return this.items.sort(sortNum);
+                },
+                sortstudents:function(){
+                    return sortByKey(this.students,'age')
+                }
+            }
+        });
+        function sortNum(a, b) {
+            return a - b;
+        }
+        function sortByKey(array,key){
+            return array.sort(function(a,b){
+                var x = a[key];
+                var y= b[key];
+                return((x<y)?-1:(x>y)?1:0);
+            })
+        }
+    </script>
+</body>
+
+</html>

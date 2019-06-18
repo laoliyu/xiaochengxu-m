@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-text实例</h1>
+    <hr>
+    <div id="app">
+        <span v-text="message"></span>
+        <!-- 使用v-text 更规范比{{}} -->
+        <!-- {{message}} -->
+       
+        <span v-html="dodo"></span>
+        <!-- 会引起黑客攻击，安全性太低，工作中尽量少用  <span v-text="dodo"></span>-->
+    </div>
+    <script>
+   var app = new Vue({
+       el:'#app',
+       data:{
+           message:'hello',
+           dodo:'<h2>hello</h2>'
+       }
+   })
+    </script>
+    
+</body>
+
+</html>

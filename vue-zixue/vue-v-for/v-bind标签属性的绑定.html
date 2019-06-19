@@ -1,0 +1,57 @@
+<!-- v-bind:缩写：  可以绑定类名 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-bind实例</h1>
+    <hr>
+    <div id="app">
+        <a :href="mag" target="_blank">技术胖</a>
+        <hr>
+        <h3>动态绑定标签的属性</h3>
+        <hr>
+        <div :class="className">绑定class</div>
+        <div :class="{{classA:isOk}}">绑定class</div>
+        <hr>
+        <div>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk">isOk={{isOk}}</label>
+        </div>
+    </div>
+
+    <style>
+        .classA {
+            color: red;
+        }
+
+        .classB {
+            color: #030200;
+        }
+    </style>
+
+    <script>
+        var app = new Vue({
+
+            el: '#app',
+            data: {
+                mag: 'localhost:8080',
+                className: 'classA',
+                isOk: true,
+                classA: 'classA',
+                classB: 'classB'
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

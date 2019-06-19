@@ -3,19 +3,26 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import rating from '../src/components/rating/ratings'
-import axios from 'axios'
+import fastClick from 'fastclick'
+import VueLazyload from 'vue-lazyload'
+import def_lazy_img from '../static/img/loading.gif'
+import store from './vuex/store'
+Vue.use(VueLazyload, {
 
-import './common/stylus/index.styl'
+  loading: def_lazy_img,
 
+})
+
+fastClick.attach(document.body)
 Vue.config.productionTip = false
-Vue.prototype.$http = axios // 将axios挂载到vue的原型链上
+import { Toast, Loading } from '@/common/plugin'
+Vue.use(Toast, Loading)
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  rating,
   components: { App },
   template: '<App/>'
 })

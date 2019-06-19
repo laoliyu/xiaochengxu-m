@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.directive实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v.directive实例</h1>
+    <hr>
+    <div id="app">
+        <div v-jsp="color">{{num}}
+        </div>
+        <p><button @click="add">Add</button></p>
+
+    </div>
+    <p>
+        <button onclick="unbind()">解绑</button>
+    </p>
+    <script>
+        function unbind(){
+            app.destory()
+        }
+        Vue.directive("jsp",function(el,updated){
+            console.log(el);
+            el.style="color:"+updated.value;
+            console.log(updated)
+            console.log(updated.name)
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 1,
+                color:'red'
+            },
+            methods: {
+                add:function(){
+                    this.num++
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js实例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-pre&v-clok&v-one</h1>
+    <!-- v-pre 原样输出 -- v-cloak渲染完成才显示   --- v-once 只进行一次渲染-->
+    <hr>
+    <div id="app">
+            {{message}}
+       <div v-pre>{{message}}</div> 
+       <div v-once>{{message}}</div>
+       <div><input type="text"v-model="message"></div>
+    </div>
+    <script>
+   var app = new Vue({
+       el:'#app',
+       data:{
+           message:'hello'
+       }
+   })
+    </script>
+    
+</body>
+
+</html>

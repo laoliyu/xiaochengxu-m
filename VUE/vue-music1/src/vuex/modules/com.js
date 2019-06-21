@@ -2,7 +2,7 @@ import api from '../../api'//引入axios
 import * as types from '../types'
 const state = {
     // 数据源
-    showSidebar: true
+    showSidebar: false
 }
 const mutations = {
     // 修改vuex数据源

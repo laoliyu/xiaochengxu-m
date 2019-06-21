@@ -14,14 +14,19 @@
 </template>
 
 <script>
+
 export default {
   name: 'hd',
   data () {
     return {}
   },
   methods:{
- leftEvent(){}
+ leftEvent(){
+    this.$store.dispatch('setShowSidebar',true)
+ },
+
   }
+ 
 
 }
 </script>

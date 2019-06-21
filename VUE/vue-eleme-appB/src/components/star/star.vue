@@ -1,6 +1,11 @@
 <template>
   <div class="star" :class="starType">
-    <span v-for="(itemClass,index) in itemClasses" :class="itemClass" class="star-item" :key="index"></span>
+    <span
+      v-for="(itemClass,index) in itemClasses"
+      :class="itemClass"
+      class="star-item"
+      :key="index"
+    ></span>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -22,7 +27,7 @@ export default {
   //   return{
   //     itemClasses:[]
   //   }
- 
+
   // },
   computed: {
     starType() {
@@ -48,7 +53,7 @@ export default {
 };
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-   @import '../../common/stylus/mixin.styl'
+ @import '../../common/stylus/mixin.styl'
     .star
         .star-item
             display: inline-block
@@ -95,5 +100,4 @@ export default {
                     bg-image('star24_half')
                 &.off
                     bg-image('star24_off')
-
-</style>
+  </style>

@@ -1,0 +1,63 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "今天我这边也在下雨，好巧哦",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "都发大水",
+      "postId": 1
+    },
+    {
+      "name": "lihua",
+      "age": 18,
+      "postId": "1",
+      "id": 2
+    },
+    {
+      "name": "lihua",
+      "age": 18,
+      "postId": "1",
+      "id": 3
+    },
+    {
+      "postId": "1",
+      "id": 4
+    },
+    {
+      "hell0": "hello",
+      "postId": "1",
+      "id": 5
+    },
+    {
+      "2": "zibi ",
+      "hell0": "hello",
+      "postId": "1",
+      "id": 6
+    },
+    {
+      "2": "zibi ",
+      "9": "我想去深圳",
+      "hell0": "hello",
+      "postId": "1",
+      "id": 7
+    },
+    {
+      "5": "我想你和你在深圳的时光",
+      "postId": "1",
+      "id": 8
+    },
+    {
+      "5": "我想你和你在深圳的时光",
+      "postId": "1",
+      "id": 9
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

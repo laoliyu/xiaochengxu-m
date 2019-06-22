@@ -1,8 +1,7 @@
 <template>
   <div class="play" v-show="playList.length>0">
     <!-- 播放页面 -->
-    <!-- 消失时出现的动画效果 -->
-    <transition
+    <transition 
       name="normal"
       @enter="enter"
       @after-enter="afterEnter"
@@ -11,38 +10,53 @@
     >
       <div class="normal-player" v-show="fullScreen">
         <div class="background">
-          <img
-            width="100%"
-            height="100%"
-            :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)"
-            alt
-          >
+          <img width="100%" height="100%" :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)" alt="">
         </div>
-        <!--播放页的头部  -->
+        <!-- 播放页面的头部 -->
         <div class="top">
           <div class="back" @click="back">
             <i class="icon">&#xe8e2;</i>
           </div>
           <h1 class="title" v-html="currentSong.name"></h1>
-          <h2
-            class="subtitle"
-            v-html="(currentSong.ar && currentSong.ar[0].name) || (currentSong.artists && currentSong.artists[0].name)"
-          ></h2>
+          <h2 class="subtitle" v-html="(currentSong.ar && currentSong.ar[0].name) || (currentSong.artists && currentSong.artists[0].name)"></h2>
         </div>
         <!-- 播放页面的内容 -->
+        <div class="middle" @touchstart.prevent="middleTouchStart"
+        @touchmove.prevent="middleTouchMove"
+        @touchend="middleTouchEnd"
+        >
+          <div class="middle-l" ref="middleL">
+            <div class="cd-wrapper" ref="cdWrapper">
+              <div class="cd" ref="imageWrapper">
+                <img :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)" alt="" ref="image" :class="cdCls" class="image"> 
+
+              </div>
+            </div>
+            <div class="playing-lyric-wrapper">
+              <div class="playing-lyric">{{playingLyric}}</div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </transition>
-    <!-- 底部播放器 -->
+    <!-- 底部的播放器 -->
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="picture">
           <div class="imgWrapper" ref="miniWrapper">
-            <img  ref="minImage" :class="cdCls" width="40" height="40" v-lazy="(currentSong.al && currentSong.al.picUrl)||(currentSong.artists && currentSong.artists[0].img1V1Url)">
+            <img 
+              ref="miniImage"
+              :class="cdCls"
+              width="40"
+              height="40"
+              v-lazy="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)"
+            >
           </div>
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
-          <p class="desc" v-html="(currentSong.ar&&currentSong.ar[0])||(currentSong.artists&&currentSong.artists[0])"></p>
+          <p class="desc" v-html="(currentSong.ar && currentSong.ar[0].name) || (currentSong.artists && currentSong.artists[0].name)"></p>
         </div>
         <div class="control">
           <i class="icon icon-mini" v-if="playing">&#xe60a;</i>
@@ -55,37 +69,53 @@
           <i class="icon">&#xe927;</i>
         </div>
         <div class="bottom-progress-bar">
-          <!-- 歌曲播放的进度条 -->
-          <div class="bottom-progress" :style="{width:(currentTime/duration).toFixed(3)*100 + '%'}"></div>
+          <div class="bottom-progress" :style="{width: (currentTime / duration).toFixed(3)*100 + '%'}"></div>
         </div>
       </div>
-    
     </transition>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  data(){
-    return{
-      playList:[1],
-  currentSong:{},
-      fullScreen:false,
-      playing:false,
-      cdCls:'play',
-      currentTime:3,
-     duration:1,
+  data () {
+    return {
+      playList: [1],
+      currentSong: [],
+      playing: true,
+      currentTime: 3,
+      duration: 1,
+      playingLyric:'心如止水'
+      
     }
   },
-  methods:{
-    open(){},
-    enter(){},
-    afterEnter(){},
-    leave(){},
-    afterLeave(){},
-    back(){}
+  computed:{
+    cdCls(){
+      return this.playing?'play':''
+    },
+    ...mapGetters(
+      [
+        'fullScreen'
+      ]
+    )
+  },
+  methods: {
+    enter () {},
+    afterEnter () {},
+    leave () {},
+    afterLeave () {},
+    middleTouchStart() {},
+    middleTouchMove() {},
+    middleTouchEnd() {},
+    back(){
+       this.$store.dispatch('selectPlaySong',false)//dispatch调用action的方法
+    },
+     open () {
+       this.$store.dispatch('selectPlaySong',true)
+     },
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -138,6 +168,53 @@ export default {
         text-align center
         font-size 14px
         color #ffffff
+    .middle
+      position fixed
+      width 100%
+      top px2rem(180px)
+      bottom px2rem(340px)
+      white-space nowrap
+      font-size 0
+      &-l
+        display inline-block
+        vertical-align top
+        position relative
+        width 100%
+        height 0
+        padding-top 80%
+        .cd-wrapper
+          position absolute
+          left 10%
+          top 0
+          width 80%
+          box-sizing border-box
+          height 100%
+          .cd
+            width 100%
+            height 100%
+            border-radius 50%
+            .image
+              position absolute
+              left 0
+              top 0
+              width 100%
+              height 100%
+              box-sizing border-box
+              border-radius 50%
+              border 10px solid rgba(255, 255, 255, 0.1)
+            .play
+              animation rotate 20s linear infinite
+        .playing-lyric-wrapper
+          width 80%
+          margin 30px auto 0 auto
+          overflow hidden
+          text-align center
+          .playing-lyric
+            height px2rem(40px)
+            line-height px2rem(40px)
+            font-size 14px
+            color hsla(0, 0%, 100%, 0.5)
+
   .mini-player
     display flex
     align-items center

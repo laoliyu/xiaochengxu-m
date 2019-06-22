@@ -11,6 +11,7 @@
     </v-header>
     <!-- tab -->
     <tab></tab>
+
     <!-- 缓存 -->
     <keep-alive>
       <!-- 路由路口 -->
@@ -29,13 +30,15 @@ import header from "@/components/header/header";
 import tab from "@/components/tab"
 import sidebar from "@/components/sidebar"
 import play from "@/components/play"
+
 export default {
   name: "App",
   components: {
     "v-header": header,
     tab,
     sidebar,
-    play
+    play,
+    
   }
 }
 </script>

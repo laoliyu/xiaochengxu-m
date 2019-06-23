@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-set 全局操作</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>v-set 全局操作</h1>
+
+    <hr>
+    <div id="app" :class="count">{{count}}
+        <p>
+            <button @click="add">Add</button>
+        </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+           
+                count: 1,
+            },
+            methods: {
+                add:function(){
+                    this.count++;
+                   
+
+
+                }
+            },
+
+        })
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-extend实例扩张</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <h1>v-extend构造器的延伸</h1>
+    <hr>
+    <div id="author"></div>
+    <script>
+    var authorURL = Vue.extend({
+        template:"<p><a href='authorURL'>{{authorName}}</a></p>",
+        data:function(){
+            return{
+                authorName:'jspang',
+                authorURL:'http://baidu.com'
+            }
+        }
+    })
+    new authorURL().$mount('#author')
+
+    </script>
+</body>
+</html>

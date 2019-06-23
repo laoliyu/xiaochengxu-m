@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>生命周期</h1>
+
+    <hr>
+    <div id="app" :class="count">{{count}}
+        <p>
+            <button @click="add">Add</button>
+        </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+                count: 1,
+            },
+            methods: {
+                add: function () {
+                    this.count++;
+                },
+                beforeCreate() {
+                    console.log('beforecreat创建之前')
+                },
+                created() {
+                    console.log('created 创建完成之后')
+                },
+                beforeMount() {
+                    console.log('beforeMounted挂载之前')
+                },
+                Mounted(){
+                    console.log('mounted挂载之后')
+                }
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

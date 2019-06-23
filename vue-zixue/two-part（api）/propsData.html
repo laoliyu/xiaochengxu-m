@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>propsData</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>propsData</h1>
+    <hr>
+    <header></header>
+    <script>
+        var header_a =Vue.extend ({
+            template: `<p>{{message}}{{a}}</p>`,
+            data: function () {
+                return {
+                    message: 'hello i am header'
+                }
+
+            },
+            props: ['a']
+        })
+        new header_a({ propsData: { a:12 } }).$mount('header')
+
+    </script>
+</body>
+
+</html>

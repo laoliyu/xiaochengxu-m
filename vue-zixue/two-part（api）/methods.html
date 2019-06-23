@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>methods</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <h1>methods</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click="add">Add</button>
+       <p><btn @click.native="add"></btn></p> 
+    </div>
+    <button onclick="app.add()">我是外部组件</button>
+    <!-- 外部调用一定要用onclick -->
+    <script>
+        var btn ={
+            template:`<button>我是组件</button>`
+        }
+    //   组件这里不需要打逗号
+        var app = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    num:1
+                }
+            },
+            components:{
+                "btn":btn
+            },
+            methods: {
+                add:function(){
+                    this.num++
+                }
+            },
+        })
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+</head>
+
+<body>
+    <h1>watch</h1>
+    <hr>
+    <div id="app">
+        <p>今日的温度：{{wendu}}°</p>
+        <p>今日适合穿:{{chuanyi}}</p>
+        <p>
+            <button @click="shangsheng">上升</button>
+
+        </p>
+        <p>
+            <button @click="xiajiang">下降</button>
+
+        </p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    wendu: "12",
+                    chuanyi: "夹克长裙"
+                }
+            },
+            methods: {
+                shangsheng: function () {
+                    this.wendu += 5;
+                },
+                xiajiang: function () {
+                    this.wendu -= 5;
+                }
+            },
+            watch: {
+                wendu:function(newVal,oldVal){
+                    if(newVal>20){
+                        this.chuanyi="适合穿短袖"
+                    }else if(newVal>0 && newVal<20){
+                        this.chuanyi="适合穿夹克长裙"
+                    }else{
+                        this.chuanyi="适合穿棉袄"
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

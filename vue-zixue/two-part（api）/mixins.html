@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mixins</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+</head>
+
+<body>
+    <h1>mixins</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click="add">add</button>
+    </div>
+    <script>
+        var newConsole ={
+            updated:function(){
+                console.log('我是混入的数据'+this.num)
+            }
+        }
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return{
+                    num:1
+                }
+            },
+            methods: {
+                add:function(){
+                    this.num++
+                }
+            },
+            updated:function(){
+                console.log('我是原生的')
+            },
+            mixins:[newConsole]
+            // 混入的
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <h1>组件</h1>
+    <div id="app">
+        <component v-bind:is="who"></component>
+        <button @click="change">change</button>
+    </div>
+    <script>
+        var componentA = {
+            "template":`<p>I am complateA</p>`
+        }
+        var componentB = {
+            "template":`<p>I am complateB</p>`
+        }
+        var componentC = {
+            "template":`<p>I am complateC</p>`
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                who:'componentA'
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC,
+
+            },
+            methods: {
+                change:function(){
+                    if(this.who=="componentA"){
+                        this.who = "componentB"
+                    }else if(this.who == "componentB"){
+                        this.who = "componentC"
+                    }else{
+                        this.who = "componentA"
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>组件</h1>
+    <hr>
+    <div id="app">
+           
+            <panda here="china"></panda>
+          <!-- <city></city> -->
+    </div>
+    
+
+   
+    <script>
+      var city ={
+          template:`<h4>sichuan of china</h4>`
+      }
+      var  chinaPanda ={
+          template:`<div><h3>panda from china</h3><city></city></div>`,
+          components:{
+              'city':city
+          }
+      }
+   var app = new Vue({
+       el:'#app',
+       data() {
+           return {
+               
+           }
+           
+       },
+    //    定义局部组件
+       components:{
+          'panda':chinaPanda,
+          props:['here']
+      }
+   })
+    </script>
+    
+</body>
+
+</html>

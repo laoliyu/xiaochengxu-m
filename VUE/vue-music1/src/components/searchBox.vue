@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { debounce } from '@/common/util'
+
 export default {
     props:{
         // 动态传送数据
@@ -31,11 +33,13 @@ export default {
             // 去获取输入框的， 失去焦点
             this.$refs.query.blur()
         }
-    }
+    },
+
 }
 </script>
 
 <style lang="stylus" scoped>
+
  @import '../assets/css/function'
 .search-box 
   display flex

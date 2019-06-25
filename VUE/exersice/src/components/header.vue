@@ -3,7 +3,7 @@
     <div class="plane">
       <span>任务追踪</span>
       <div class="create">
-        <router-link to="/time">创建一个任务</router-link>
+        <router-link to="/create">创建一个任务</router-link>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
 <style lang="css" scoped>
 .navigate-wrapper {
   width: 100%;
-  height: 110px;
+  height: 210px;
   margin-top: 20px;
   margin-left: 20px;
   border: 1px solid #d0d0d0;
@@ -32,12 +32,19 @@ export default {
   border-radius: 10px;
 }
 .plane span {
-  font-weight: bold;
+position: absolute;
   margin-left: 20px;
   font-size: 30px;
+  margin-top: 50px;
 }
 .create {
-  margin-top: 10px;
+ position: absolute;
+ margin-top: 120px;
+  margin-left: 20px;
+  text-decoration: none;
 }
-
+/* .create.hover{
+  text-decoration: none;
+  color: aqua; */
+/* } */
 </style>

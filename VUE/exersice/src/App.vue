@@ -16,7 +16,7 @@
       <!-- 显示左边的内容 -->
       <div class="time-box">
         <div class="complete-time">已有时长</div>
-        <div class="time">0小时</div>
+        <div class="time">{{time}}小时</div>
       </div>
       <!-- 显示右边的内容 -->
       <div class="right">
@@ -31,7 +31,9 @@
 
 export default {
   data() {
-    return {};
+    return {
+      time:0
+    };
   },
   
 };
@@ -67,26 +69,28 @@ line-height: 50px;
 }
 .content {
   width: 100%;
-  height: 100px;
+  height: 200px;
   display: flex;
  
 }
 .time-box {
   flex:0.3;
   margin-top: 20px;
-
-  height: 100px;
+  font-weight: bold;
+  height: 200px;
   border: 1px solid #d0d0d0;
    border-radius: 10px;
 }
 .complete-time {
   border-bottom: 1px solid #d0d0d0;
-  height: 50px;
+  height:100px;
   background-color: #f5f5f5;
   text-align: center;
+  line-height: 100px;
 }
 .time {
   text-align: center;
+  line-height: 100px;
 }
 .right{
   flex:0.6

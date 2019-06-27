@@ -1,6 +1,12 @@
 <template>
-  <v-scroll ref="suggest" class="suggest" :data="result" :pullup="pullup" 
-  :beforeScroll="beforeScroll" @scrollToEnd="searchMore" @beforeScroll="listScroll"
+  <v-scroll
+    ref="suggest"
+    class="suggest"
+    :data="result"
+    :pullup="pullup"
+    :beforeScroll="beforeScroll"
+    @scrollToEnd="searchMore"
+    @beforeScroll="listScroll"
   >
     <ul class="suggest-list">
       <li @click="selectItem(item)" class="suggest-item" v-for="(item, index) in result" :key="index">
@@ -19,10 +25,13 @@
   </v-scroll>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import scroll from '@/components/scroll'
+// import load from '@/components/load'
 import api from '@/api'
+
 const limit = 20
+
 export default {
   name: 'suggest',
   props: {
@@ -40,39 +49,7 @@ export default {
       result: []
     }
   },
-  components: {
-    'v-scroll': scroll
-  },
   methods: {
-    searchMore() {
-      if (!this.hasMore) {
-        return
-      }
-      this.page++
-      this.fetchResult(this.page)
-    },
-    listScroll() 
-    {
-      this.$emit('listScroll')
-    },
-    selectItem(item){
-      this.$emit('select',item)
-    },
-     getDisplayName(item){
-      return `${item.name}-${item.artists[0]&&item.artists[0].name}`
-    },
-    _checkMore (data) {
-      if (data.songs.length < 12 || ((this.page - 1) * limit) >= data.songCount)  {
-        
-      }
-    },
-    search (){
-      this.page = 1
-      this.hasMore = true
-      this.$refs.suggest.scrollTo(0, 0)
-      this.result = []
-      this.fetchResult(this.page)
-    },
     refresh() {
       this.$refs.suggest.refresh()
     },
@@ -83,24 +60,53 @@ export default {
         keywords: this.query
       }
       api.MusicSearch(params).then(res => {
-        if(res.code === 200) {
-          console.log(res)
-          this.result = [...this.result,...res.result.songs]
+        if (res.code === 200) {
+          this.result = [...this.result, ...res.result.songs]
           this._checkMore(res.result)
         }
       })
     },
+    search() {
+      this.page = 1
+      this.hasMore = true
+      this.$refs.suggest.scrollTo(0, 0)
+      this.result = []
+      this.fetchResult(this.page)
+    },
+    searchMore() {
+      if (!this.hasMore) {
+        return
+      }
+      this.page++
+      this.fetchResult(this.page)
+    },
+    listScroll() {
+      this.$emit('listScroll')
+    },
+    selectItem(item) {
+      this.$emit('select', item)
+    },
+    getDisplayName(item) {
+      return `${item.name}-${item.artists[0] && item.artists[0].name}`
+    },
+    _checkMore(data) {
+      if (data.songs.length < 12 || ((this.page - 1) * limit) >= data.songCount) {
+        this.hasMore = false
+      }
+    },
   },
   watch: {
-    query (newQuery) {
+    query(newQuery) {
       if (!newQuery) {
         return
       }
       this.search(newQuery)
     }
   },
-
-
+  components: {
+    'v-scroll': scroll,
+    // 'loading': load,
+  }
 }
 </script>
 

@@ -58,7 +58,7 @@ export default {
     return fetchGet('/search', params)
   },
   // 热搜
-  HotSearchKey(){
+  HotSearchKey () {
     return fetchGet('/search/hot')
   }
 }

@@ -1,4 +1,4 @@
-# anger-shop
+# shopping-g
 
 > A Vue.js project
 

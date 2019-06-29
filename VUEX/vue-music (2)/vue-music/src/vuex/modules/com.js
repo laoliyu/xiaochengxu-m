@@ -4,7 +4,7 @@ import * as types from '../types'
 const state = {
   showSidebar: false,
   fullScreen: false,
-  searchHistory: [123]
+  searchHistory: ['123','das']
 }
 
 const mutations = {
@@ -27,7 +27,7 @@ const actions = {
     // let playlist = state.playlist.slice()
     commit(types.SET_FULL_SCREEN, status)
   },
-  saveSearchHistory ({commit, state}, query) {
+  saveSearchHistory({ commit, state }, query) {
     let searchHistory = [query, ...state.searchHistory.slice()]
     searchHistory = [...new Set(searchHistory)]
     commit(types.COM_SAVE_SEARCH_HISTORY, searchHistory)

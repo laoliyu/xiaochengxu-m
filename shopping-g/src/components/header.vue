@@ -12,6 +12,8 @@
   >
     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
   </el-select>
+ 
+ 
 </template>
 
 <script>
@@ -23,56 +25,37 @@ export default {
       list: [],
       loading: false,
       states: [
-        "Alabama",
-        "Alaska",
-        "Arizona",
-        "Arkansas",
-        "California",
-        "Colorado",
-        "Connecticut",
-        "Delaware",
-        "Florida",
-        "Georgia",
-        "Hawaii",
-        "Idaho",
-        "Illinois",
-        "Indiana",
-        "Iowa",
-        "Kansas",
-        "Kentucky",
-        "Louisiana",
-        "Maine",
-        "Maryland",
-        "Massachusetts",
-        "Michigan",
-        "Minnesota",
-        "Mississippi",
-        "Missouri",
-        "Montana",
-        "Nebraska",
-        "Nevada",
-        "New Hampshire",
-        "New Jersey",
-        "New Mexico",
-        "New York",
-        "North Carolina",
-        "North Dakota",
-        "Ohio",
-        "Oklahoma",
-        "Oregon",
-        "Pennsylvania",
-        "Rhode Island",
-        "South Carolina",
-        "South Dakota",
-        "Tennessee",
-        "Texas",
-        "Utah",
-        "Vermont",
-        "Virginia",
-        "Washington",
-        "West Virginia",
-        "Wisconsin",
-        "Wyoming"
+        "食物",
+        "母婴",
+        "女装",
+        "生鲜",
+        "家电",
+        "美妆护理",
+        "男装",
+        "家纺",
+        "手机电脑",
+        "大家电",
+        "车品",
+        "苏宁极物",
+        "鞋子",
+        "包包",
+        "内衣",
+        "宠物",
+        "绿植",
+        "珠宝配饰",
+        "运动户外",
+        "图书",
+        "女鞋",
+        "男鞋",
+        "短袖",
+        "长袖",
+        "棉袄",
+        "零食",
+        "海外代购",
+        "老母鸡",
+        "精选好货",
+        "每日特价",
+        "免费赠送"
       ]
     };
   },
@@ -102,10 +85,10 @@ export default {
 .search {
   width: 90%;
   margin-left: 5%;
- 
-  position:absolute;
-  left:0px;
-  top:10px;
-  z-index:1;
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  z-index: 1;
+  opacity: 0.8;
 }
 </style>

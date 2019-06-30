@@ -12,7 +12,7 @@
 import leftNav from "../src/components/common/leftNav";
 export default {
   name: "App",
-  data() {},
+
   components: {
     leftNav
   }

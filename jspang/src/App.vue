@@ -1,24 +1,39 @@
 <template>
   <div id="app">
-  <i class="icon iconfont icon-dianpu"></i>
-  <i class="icon iconfont icon-31huiyuan"></i>
-    <router-view/>
+    <leftNav></leftNav>
+    <div class="mine">
+ <router-view />
+    </div>
+   
   </div>
 </template>
 
 <script>
+import leftNav from "../src/components/common/leftNav";
 export default {
-  name: 'App'
-}
+  name: "App",
+  data() {},
+  components: {
+    leftNav
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+}
+.mine{
+  float: left;
+  width: 90%;
+  background-color: #EFF2F7;
+  height: 100%;
+  overflow: hidden;
+
 }
 </style>
